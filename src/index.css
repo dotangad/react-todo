@@ -1,4 +1,4 @@
-body {
+body, * {
   margin: 0;
   padding: 0;
   font-family: system-ui;
@@ -8,4 +8,16 @@ body {
   max-width: 450px;
   margin: 0 auto;
   padding: 50px;
+}
+
+.todo-input {
+  padding: 10px 20px;
+  border: 2px solid #53719B;
+  border-right: none;
+  border-left: none;
+  font-size: 1.5rem;
+  width: 100%;
+}
+.todo-input:focus {
+  outline: none;
 }
