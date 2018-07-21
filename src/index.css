@@ -17,7 +17,22 @@ body, * {
   border-left: none;
   font-size: 1.5rem;
   width: 100%;
+  margin-bottom: 30px;
 }
 .todo-input:focus {
   outline: none;
+}
+
+.todo-list {
+  margin-right: 50px;
+}
+
+.todo {
+  padding: 10px 20px;
+  border: 2px solid #53719B;
+  border-right: none;
+  border-left: none;
+  font-size: 1.5rem;
+  width: 100%;
+  margin: 10px 0; 
 }
