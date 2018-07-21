@@ -27,16 +27,23 @@ const TodoInput = props => (
 );
 
 const Todo = props => (
-  <div className="todo">
-    {props.content}
+  <div className="todo" onClick={props.onTodoDelete}>
+    <span>{props.todo}</span>
   </div>
 );
 
 const TodoList = props => (
   <div className="todo-list">
-    {props.todos.map(todo => (
-      <Todo content={todo.content} key={props.todos.indexOf(todo)} />
-    ))}
+    {props.todos.map(todo => {
+      const key = props.todos.indexOf(todo);
+      return (
+        <Todo
+          todo={todo}
+          key={key}
+          onTodoDelete={() => props.onTodoDelete(key)}
+        />
+      );
+    })}
   </div>
 );
 
@@ -55,14 +62,20 @@ class App extends Component {
 
   onTodoInputKeypress = e => {
     if (e.which === 13) {
+      if (this.state.todoInput === "") return;
       this.setState(prevState => {
         return {
-          todos: prevState.todos.concat([{content: prevState.todoInput, done: false}]),
+          todos: prevState.todos.concat([prevState.todoInput]),
           todoInput: ""
         };
       });
-      console.log(this.state);
     }
+  };
+
+  onTodoDelete = key => {
+    let { todos } = this.state;
+    todos.splice(key, 1);
+    this.setState({ todos });
   };
 
   render() {
@@ -75,7 +88,7 @@ class App extends Component {
           placeholder="Enter Todo"
           onChange={this.onTodoInputChange}
         />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} onTodoDelete={this.onTodoDelete} />
       </div>
     );
   }

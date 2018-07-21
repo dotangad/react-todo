@@ -19,6 +19,7 @@ body, * {
   width: 100%;
   margin-bottom: 30px;
 }
+
 .todo-input:focus {
   outline: none;
 }
@@ -34,5 +35,24 @@ body, * {
   border-left: none;
   font-size: 1.5rem;
   width: 100%;
-  margin: 10px 0; 
+  margin: 10px 0;
+}
+
+.todo span {
+  margin-top: -100px;
+}
+
+.todo button {
+  margin-top: 5px;
+  margin-right: 20px;
+  height: 1.7rem;
+  width: 1.7rem;
+  border-radius: 2rem;
+  border: 2px solid #53719B;
+  cursor: pointer;
+  background: white;
+}
+
+.todo button:focus {
+  outline: none;
 }
