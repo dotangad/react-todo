@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 
 const Header = props => (
-  <h1
-    style={{
-      fontWeight: 200,
-      fontSize: "3rem",
-      marginBottom: 30,
-      textTransform: "uppercase"
-    }}
-  >
-    {props.title}
-  </h1>
+  <div style={{ marginBottom: 30 }}>
+    <h1
+      style={{
+        fontWeight: 200,
+        fontSize: "3rem",
+        textTransform: "uppercase"
+      }}
+    >
+      {props.title}
+    </h1>
+    <p>{props.message}</p>
+  </div>
 );
 
 const TodoInput = props => (
@@ -81,7 +83,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header title="Todo App" />
+        <Header title="Todo App" message="Enter to add, click to delete" />
         <TodoInput
           onKeyPress={this.onTodoInputKeypress}
           value={this.state.todoInput}
